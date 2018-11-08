@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 17:30:07 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/08 16:23:38 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/08 16:25:11 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/08 17:06:13 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putstr(char const *s)
+double	ft_sqrt(double x)
 {
-	while (*s)
-		ft_putchar(*s++);
+	int i;
+
+	i = 1;
+	if (x == -0)
+		return (-0);
+	if (x < 0 || x == 0)
+		return (0);
+	if (x == 2)
+		return (0);
+	while ((i * i) < x)
+		i++;
+	if ((i * i) == x)
+		return (i);
+	return (0);
 }

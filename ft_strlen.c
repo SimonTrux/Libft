@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 17:30:07 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/08 16:23:38 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/05 17:34:08 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/08 16:54:17 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+size_t	ft_strlen(const char *s)
 {
-	while (*s)
-		ft_putchar(*s++);
+	size_t i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
