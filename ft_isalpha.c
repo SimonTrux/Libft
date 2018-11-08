@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 15:26:08 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/08 19:57:30 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/08 18:35:36 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/08 18:49:50 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_isalpha(int c)
 {
-	if (n < -2147483647)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		n = 147483648;
-	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	}
-	if (n > 9)
-		ft_putnbr(n / 10);
-	ft_putchar((n % 10) + 48);
+	if (ft_isupper(c) == 1 || ft_islower(c) == 1)
+		return (1);
+	else
+		return (0);
 }

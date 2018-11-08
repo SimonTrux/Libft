@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 15:26:08 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/08 19:57:30 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/08 18:33:54 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/08 19:43:14 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_atoi(const char *str)
 {
-	if (n < -2147483647)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		n = 147483648;
+	int i;
+	int sign;
+	int res;
+
+	i = 0;
+	sign = 1;
+	res = 0;
+	while (ft_isspace(str[i]) == 1)
+		i++;
+	if (str[i] == '-')
+		sign = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]) == 1)
+	{	
+		res = res * 10 + (str[i] - 48);
+		i++;
 	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	}
-	if (n > 9)
-		ft_putnbr(n / 10);
-	ft_putchar((n % 10) + 48);
+	return (res * sign);
 }
