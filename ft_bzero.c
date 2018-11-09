@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 18:35:36 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/09 15:08:22 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/09 16:46:26 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/09 16:58:58 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	if (ft_isupper(c) == 1 || ft_islower(c) == 1)
-		return (1);
-	else
-		return (0);
+	while (n > 0)
+	{
+		*(int*)s++ = 0;
+		n--;
+	}
 }

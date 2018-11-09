@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:09:53 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/08 19:53:54 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/09 16:58:32 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ void	ft_putnbr(int n);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *s);
-
+char	*ft_strcpy(char *dst, const char *src);
 /*
  **MEM FAMILY
 */
-
+void	*ft_memset(void *b, int c, size_t len);
+void	ft_bzero(void *s, size_t n);
 /*
  **IS FAMILY
 */

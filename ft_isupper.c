@@ -6,11 +6,11 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:38:19 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/08 18:53:50 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/09 15:07:38 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	isupper(int c)
+int	ft_isupper(int c)
 {
 	if (c > 64 && c < 91)
 		return (1);
