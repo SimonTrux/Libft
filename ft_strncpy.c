@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 17:30:07 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/09 18:47:43 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/09 17:50:07 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/09 18:00:47 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	if (s)
+	int i;
+
+	i = 0;
+	while (src[i] != '\0' && len > 0)
 	{
-		while (*s)
-			ft_putchar(*s++);
+		dst[i] = src[i];
+		i++;
+		len--;
 	}
+	dst[i] = '\0';
+	return (dst);
 }

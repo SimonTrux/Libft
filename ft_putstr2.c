@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:19:14 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/08 15:20:01 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/09 18:48:20 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_putstr2(char const *s)
 {
-	while (*s)
-		ft_putchar2(*s++);
+	if (s)
+	{
+		while (*s)
+			ft_putchar2(*s++);
+	}
 }
