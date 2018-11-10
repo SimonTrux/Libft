@@ -19,6 +19,8 @@
 #define CYN   "\x1B[36m"
 #define RESET "\x1B[0m"
 
+//int	ft_inttest
+
 int	main(int ac, char **av)
 {
 
@@ -40,9 +42,18 @@ int	main(int ac, char **av)
 	ft_putendl("Ceci est un test de ft_putndl");
 	if (ac > 1)
 	{	
-		ft_putstr(YEL "Atoi test from arg 1 : " RESET);
+		ft_putstr(YEL "ATOI TEST from arg 1 : " RESET);
 		ft_putnbr(ft_atoi(av[1]));
 		ft_putchar('\n');
+		ft_putchar('\n');
+		ft_putendl(YEL "ITOA TEST" RESET);
+		ft_putchar('\n');
+		ft_putstr(ft_itoa(987));
+		ft_putchar('\n');
+		ft_putendl(ft_itoa(-987));
+		ft_putendl(ft_itoa(0));
+		ft_putendl(ft_itoa(-2123456789));
+
 	}
 	//	STRCMP
 	if (ac > 2)

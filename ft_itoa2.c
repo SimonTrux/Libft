@@ -30,23 +30,21 @@ char	*ft_itoa(int n)
 {
 	char	*number;
 	int		len;
-	
-	printf("n = %d\n", n);
-	printf("number of tens : %d\n", ft_tens_count(n));
+
 	len = (ft_tens_count(n) + 1);
+	printf("number of digit : %d\n", len);
 	if (n < 0)
 		len++;
-	printf("number of digit : %d\n", len);
 	if (!(number = (char*)malloc(len * sizeof(char) + 1)))
 		return (NULL);
-	number[len] = '\0';
+//	number[len] = '\0';
 	len--;
 	if (n < 0)
 	{
 		number[0] = '-';
 		while (len > 0)
 		{
-			number[len] = ((n % 10) + 48);
+			number[len] = (n % 10) + 48;
 			n = (n / 10);
 			len--;
 		}
@@ -55,7 +53,7 @@ char	*ft_itoa(int n)
 	{
 		while (len > 0)
 		{
-			number[len] = ((n % 10) + 48);
+			number[len] = (n % 10) + 48;
 			n = (n / 10);
 			len--;
 		}
