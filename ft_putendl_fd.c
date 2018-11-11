@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 18:00:01 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/11 18:01:28 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/11 18:47:58 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	ft_putendl_fd(char const *s, int fd)
 	if (s)
 	{
 		write(fd, s, len);
-		ft_putchar('\n');
+		ft_putchar_fd('\n', fd);
 	}
 }

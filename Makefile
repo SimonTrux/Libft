@@ -6,14 +6,14 @@
 #    By: struxill <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 21:48:46 by struxill          #+#    #+#              #
-#    Updated: 2018/11/11 18:04:38 by struxill         ###   ########.fr        #
+#    Updated: 2018/11/11 20:01:46 by struxill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 CFLAGS	= -Wall -Wextra -Werror
 SRC_STR	= ft_strcmp.c ft_strdup.c ft_strlen.c ft_strcpy.c ft_strncpy.c
-SRC_MEM	= ft_memset.c ft_bzero.c
+SRC_MEM	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c
 SRC_IS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c
 SRC_COV	= ft_toupper.c ft_tolower.c ft_atoi.c
 SRC_ADD	= ft_putchar.c ft_putstr.c ft_putnbr.c ft_putendl.c 			\
@@ -28,20 +28,31 @@ MAIN	= main.c
 all: $(NAME)
 
 $(NAME):
+	@echo "\033[92mGCC Compilation\033[0m"
 	gcc -c $(CFLAGS) $(SOURCES)
+	@echo
+	@echo "\033[92mLibrary Creation\033[0m"
 	ar rc $(NAME) *.o
+	@echo
+	@echo "\033[92mRanlib\033[0m"
 	ranlib $(NAME)
+	@echo
 
 clean:
+	@echo "\033[92mCleaning .o\033[0m"
 	rm -f *.o
+	@echo
 
 fclean: clean
+	@echo "\033[92mRemoving Library\033[0m"
 	rm -f $(NAME) a.out
+	@echo
 
 re: fclean all
 
 main: 
+	@echo "\033[92mCompiling Main with Library\033[0m"
 	gcc $(CFLAGS) $(MAIN) -L. -lft
-
-
-
+	@echo
+	@echo "\033[92mFinished\033[0m"
+	@echo

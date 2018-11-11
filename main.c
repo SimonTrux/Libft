@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:21:56 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/11 16:58:27 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/11 19:44:59 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,22 @@ int	main(int ac, char **av)
 {
 	int tabint[10] = { -42, -1, 0, 1, 2, 2147483647, -2147483648, -9999, 987654321, 42 };
 
-//	tabint[10] = 15;
-	//	PUTSTR PUTNBR PUTCHAR
-	//	(void)av;
+	TEST("MEMCPY");
+	int array[] = { 54, 85, 20, 63, 21 };
+    int *copy = NULL;
+    int length = sizeof(int) * 5;
+       
+    /* Memory allocation and copy */
+    copy = (int *) malloc( length );
+    memcpy( copy, array, length );
+        
+    /* Display the copied values */
+    for( length=0; length<5; length++ ) 
+        printf( "%d ", copy[length] );
+    printf("\n");
+    free(copy);
+
+
 	TEST("PUTSTR PUTCHAR");
 	ft_putchar('\n');
 	ft_putstr("There is ");

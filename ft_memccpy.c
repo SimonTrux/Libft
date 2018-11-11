@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 16:46:26 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/11 20:08:32 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/11 19:21:03 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/11 20:09:07 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char *str;
+	char		*destination;
+	const char	*source;
 
-	str = s;
-	while (n--)
-		*str++ = 0;
+	destination = dst;
+	source = src;
+	while (n > 0 && *source != c)
+	{
+		*destination++ = *source++;
+		n--;
+		if (n == 0)
+			return (NULL);
+	}
+	*destination++ = *source;
+	return (destination);
 }
