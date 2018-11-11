@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:21:56 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/10 19:37:27 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/11 16:58:27 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int ac, char **av)
 		ft_putchar('\n');
 		ft_putendl(ft_itoa(-987));
 		ft_putendl(ft_itoa(0));
-		ft_putendl(ft_itoa(-2123456789));
+		ft_putendl(ft_itoa(-223456789));
 
 	}
 	//	STRCMP
