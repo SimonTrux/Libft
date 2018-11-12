@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 18:24:27 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/12 15:21:14 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/12 17:25:05 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_putendl(char const *s)
 {
-	int len;
-	char rc;
+	int		len;
+	char	rc;
 
 	rc = '\n';
 	len = ft_strlen(s);
@@ -23,5 +23,5 @@ void	ft_putendl(char const *s)
 	{
 		write(1, s, len);
 		write(1, &rc, 1);
-	}	
+	}
 }
