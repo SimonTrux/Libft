@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 20:07:16 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/12 18:56:50 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/12 19:11:16 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/12 19:51:00 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
-	char		*destination;
-	const char	*source;
+	const char	*ptr;
+	size_t		i;
 
-	destination = dst;
-	source = src;
-	if (src)
+	i = ft_strlen(s);
+	while (i && s[i] != (const char)c)
+		i--;
+	if (s[i] == (const char)c)
 	{
-		while (len-- && *source)
-			*destination++ = *source++;
+		ptr = &s[i];
+		return ((char*)ptr);
 	}
-	return (dst);
+	else
+		return (NULL);
 }
