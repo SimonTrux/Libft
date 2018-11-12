@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 17:30:07 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/12 15:22:00 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/12 15:08:45 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/12 15:25:01 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (s)
+	size_t i;
+	unsigned char *str1;
+	unsigned char *str2;
+
+	str1 = (unsigned char*)s1;
+	str2 = (unsigned char*)s2;
+
+	i = 0;
+	while (str1[i] && str1[i] == str2[i] && n)
 	{
-		while (*s)
-			ft_putchar(*s++);
+		i++;
+		n--;
 	}
+	if (n == 0)
+		return (0);
+	return (str1[i] - str2[i]);
 }
