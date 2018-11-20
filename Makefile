@@ -6,7 +6,7 @@
 #    By: struxill <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 21:48:46 by struxill          #+#    #+#              #
-#    Updated: 2018/11/12 22:52:15 by struxill         ###   ########.fr        #
+#    Updated: 2018/11/20 18:26:50 by struxill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC_COV	= ft_toupper.c ft_tolower.c ft_atoi.c
 SRC_ADD	= ft_memalloc.c	ft_memdel.c ft_strnew.c	ft_strdel.c				\
 		  ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c			\
 		  ft_strmapi.c ft_strequ.c ft_strnequ.c							\
+		  ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c			\
 		  ft_putchar.c ft_putstr.c ft_putnbr.c ft_putendl.c 			\
 		  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 		  ft_itoa.c

@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 18:57:03 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/11 19:11:35 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/20 15:43:45 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,25 @@ char	*ft_itoa(int n)
 {
 	char	*number;
 	int		len;
+	long	nb;
 
-	len = (ft_digit_count(n));
+	nb = n;
+	len = (ft_digit_count(nb));
 	if (!(number = (char*)malloc(len * sizeof(char) + 1)))
 		return (NULL);
 	number[len] = '\0';
 	len--;
-	if (n < 0)
+	if (nb < 0)
 	{
 		number[0] = '-';
-		n = (long)-n;
+		nb = -nb;
 	}
-	if (n == 0)
+	if (nb == 0)
 		number[0] = '0';
-	while ((len >= 0 && n > 0) || (len > 0 && n < 0))
+	while ((len >= 0 && nb > 0) || (len > 0 && nb < 0))
 	{
-		number[len] = ((n % 10) + 48);
-		n = (n / 10);
+		number[len] = ((nb % 10) + 48);
+		nb = (nb / 10);
 		len--;
 	}
 	return (number);
