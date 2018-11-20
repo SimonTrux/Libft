@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:51:35 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/20 16:07:24 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/20 22:11:12 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,23 @@ size_t	ft_count_space(char const *s)
 {
 	size_t sp;
 	size_t i;
+	size_t len;
 
+	len = ft_strlen(s);
 	i = 0;
 	sp = 0;
-	while (s[i])
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 	{
-		if (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-			sp++;
+		sp++;
 		i++;
 	}
+	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
+	{
+		sp++;
+		len--;
+	}
+	if (sp > len)
+		return (len);
 	return (sp);
 }
 
@@ -40,13 +48,13 @@ char	*ft_strtrim(char const *s)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s[i + j])
+	while (s[i + j] == ' ' || s[i + j] == '\n' || s[i + j] == '\t')
+		j++;
+	retstr[ft_strlen(s) - sp + 1] = '\0';
+	while (retstr[i])
 	{
-		while (s[i + j] == ' ' || s[i + j] == '\n' || s[i + j] == '\t')
-			j++;
 		retstr[i] = s[i + j];
 		i++;
 	}
-	retstr[i + j] = '\0';
 	return (retstr);
 }
