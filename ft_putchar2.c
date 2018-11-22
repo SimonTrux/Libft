@@ -6,13 +6,15 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:13:15 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/08 15:14:03 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/22 19:39:24 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putchar2(char c)
 {
-	write(2, &c, 1);
+	if (c)
+		write(2, &c, 1);
 }

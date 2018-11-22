@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 21:43:15 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/12 22:21:22 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/22 20:24:23 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ void	ft_strclr(char *s)
 {
 	size_t	len;
 
-	len = ft_strlen(s);
-	ft_bzero(s, len);
+	if (s)
+	{
+		len = ft_strlen(s);
+		ft_bzero(s, len);
+	}
 }

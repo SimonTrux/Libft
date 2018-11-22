@@ -6,11 +6,12 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 18:57:03 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/20 15:43:45 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/22 19:41:53 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 #define ABS(x) x < 0 ? -x : x
 
 int		ft_digit_count(int n)

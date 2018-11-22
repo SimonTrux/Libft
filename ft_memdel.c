@@ -6,14 +6,18 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 21:24:18 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/12 21:38:54 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/22 20:29:05 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 void	ft_memdel(void **ap)
 {
-	free(*ap);
-	*ap = NULL;
+	if (ap)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

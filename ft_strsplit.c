@@ -6,11 +6,12 @@
 /*   By: struxill <struxill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 16:08:36 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/20 21:45:14 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/22 20:36:58 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 size_t	ft_lc(char const *s, char c)
 {
@@ -36,22 +37,24 @@ char	**ft_strsplit(char const *s, char c)
 	unsigned int	j;
 	size_t			wc;
 
-	wc = ft_wc(s, c);
-	i = 0;
-	j = 0;
-	if (!(s))
-		return (NULL);
-	if (!(tab = (char**)malloc(sizeof(char*) * wc + 1)))
-		return (NULL);
-	while (i < wc)
+	tab = NULL;
+	if (s && c)
 	{
-		while (s[j] == c)
-			j++;
-		if (!(tab[i] = ft_strsub(s, j, ft_lc(&s[j], c))))
+		wc = ft_wc(s, c);
+		i = 0;
+		j = 0;
+		if (!(tab = (char**)malloc(sizeof(char*) * wc + 1)))
 			return (NULL);
-		j = j + ft_lc(&s[j], c);
-		i++;
+		while (i < wc)
+		{
+			while (s[j] == c)
+				j++;
+			if (!(tab[i] = ft_strsub(s, j, ft_lc(&s[j], c))))
+				return (NULL);
+			j = j + ft_lc(&s[j], c);
+			i++;
+		}
+		tab[i] = 0;
 	}
-	tab[i] = 0;
 	return (tab);
 }

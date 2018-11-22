@@ -6,11 +6,12 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:51:35 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/20 22:11:12 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/22 19:41:52 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 size_t	ft_count_space(char const *s)
 {
