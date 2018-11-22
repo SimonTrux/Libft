@@ -6,7 +6,7 @@
 #    By: struxill <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 21:48:46 by struxill          #+#    #+#              #
-#    Updated: 2018/11/20 21:36:35 by struxill         ###   ########.fr        #
+#    Updated: 2018/11/22 18:24:12 by struxill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,11 @@ SRC_ADD	= ft_memalloc.c	ft_memdel.c ft_strnew.c	ft_strdel.c				\
 		  ft_putchar.c ft_putstr.c ft_putnbr.c ft_putendl.c 			\
 		  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 		  ft_itoa.c
+SRC_BON	= ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c			\
+		  ft_lstiter.c ft_lstmap.c
 SRC_PER	= ft_putchar2.c ft_putstr2.c ft_isupper.c ft_islower.c ft_sqrt.c \
 		  ft_isspace.c ft_wc.c
-SOURCES	= $(SRC_STR) $(SRC_MEM) $(SRC_IS) $(SRC_COV) $(SRC_ADD) $(SRC_PER)
+SOURCES	= $(SRC_STR) $(SRC_MEM) $(SRC_IS) $(SRC_COV) $(SRC_ADD) $(SRC_BON) $(SRC_PER)
 MAIN	= main.c
 
 #OBJ	= $(SOURCES:.c=.o)
