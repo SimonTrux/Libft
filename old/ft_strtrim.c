@@ -6,69 +6,56 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:51:35 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/23 18:02:08 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/22 19:41:52 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-int		ft_is_space(char c)
+size_t	ft_count_space(char const *s)
 {
-	if (c == ' ' || c == '\n' || c == '\t')
-		return (1);
-	else
-		return (0);
-}
+	size_t sp;
+	size_t i;
+	size_t len;
 
-size_t	ft_front_sp(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (ft_is_space(s[i]))
-		i++;
-	return (i);
-}
-
-size_t	ft_end_sp(const char *s)
-{
-	size_t	i;
-	size_t	len;
-
-	i = 0;
 	len = ft_strlen(s);
-	while (ft_is_space(s[len - 1]))
+	i = 0;
+	sp = 0;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 	{
-		len--;
+		sp++;
 		i++;
 	}
-	return (i);
+	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
+	{
+		sp++;
+		len--;
+	}
+	if (sp > len)
+		return (len);
+	return (sp);
 }
 
 char	*ft_strtrim(char const *s)
 {
+	size_t	sp;
+	char	*retstr;
 	size_t	i;
 	size_t	j;
-	char	*retstr;
-	size_t	spaces;
-	size_t	len;
 
-	if (!s)
+	sp = ft_count_space(s);
+	if (!(retstr = (char*)malloc(sizeof(char) * (ft_strlen(s) - sp) + 1)))
 		return (NULL);
 	i = 0;
 	j = 0;
-	spaces = ft_front_sp(s) + ft_end_sp(s);
-	if (spaces > ft_strlen(s))
-		len = 0;
-	else
-		len = ft_strlen(s) - spaces;
-	if (!(retstr = (char*)malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	retstr[len] = '\0';
-	while (ft_is_space(s[i]))
+	while (s[i + j] == ' ' || s[i + j] == '\n' || s[i + j] == '\t')
+		j++;
+	retstr[ft_strlen(s) - sp + 1] = '\0';
+	while (retstr[i])
+	{
+		retstr[i] = s[i + j];
 		i++;
-	while (j < len)
-		retstr[j++] = s[i++];
+	}
 	return (retstr);
 }

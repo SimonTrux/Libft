@@ -6,13 +6,14 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:21:56 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/11 19:44:59 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/23 17:54:03 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[32m"
 #define YEL   "\x1B[33m"
@@ -95,5 +96,12 @@ int	main(int ac, char **av)
 		printf("my strcmp de av1 et av2 : %d\n", ft_strcmp(av[1], av[2]));
 		printf("ori strcmp de av1 et av2 : %d\n", strcmp(av[1], av[2]));
 	}		
+	
+	//	STRTRIM
+	TEST("STRTRIM");
+	printf("strtim de av1 : %s\n", ft_strtrim(av[1]));
+
+
+
 	return (0);
 }

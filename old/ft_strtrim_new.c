@@ -6,12 +6,16 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:51:35 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/23 18:02:08 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/23 17:54:02 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+
+
+
+#include <stdio.h>
 
 int		ft_is_space(char c)
 {
@@ -28,6 +32,7 @@ size_t	ft_front_sp(const char *s)
 	i = 0;
 	while (ft_is_space(s[i]))
 		i++;
+	printf("espaces devant la chaine : %zu\n", i);
 	return (i);
 }
 
@@ -43,6 +48,7 @@ size_t	ft_end_sp(const char *s)
 		len--;
 		i++;
 	}
+	printf("espaces derriere la chaine : %zu\n", i);
 	return (i);
 }
 
@@ -59,16 +65,22 @@ char	*ft_strtrim(char const *s)
 	i = 0;
 	j = 0;
 	spaces = ft_front_sp(s) + ft_end_sp(s);
-	if (spaces > ft_strlen(s))
-		len = 0;
-	else
-		len = ft_strlen(s) - spaces;
+	len = ft_strlen(s) - spaces;
+	printf("longueur a malloc : %zu\n", len + 1);
 	if (!(retstr = (char*)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	retstr[len] = '\0';
 	while (ft_is_space(s[i]))
+	{
 		i++;
+		printf("espace skip au debut de s : %zu\n", i);
+	}	
 	while (j < len)
-		retstr[j++] = s[i++];
+	{
+		retstr[j] = s[i];
+		printf("retstr[%zu] = %c, s[%zu] = %c\n", j, retstr[j], i, s[i]);
+		j++;
+		i++;
+	}
 	return (retstr);
 }

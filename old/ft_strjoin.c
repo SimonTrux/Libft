@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:44:58 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/23 17:10:48 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/23 17:05:20 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,17 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		maxlen = ft_strlen(s1) + ft_strlen(s2);
 		if (!(retstr = (char*)malloc(sizeof(char) * maxlen + 1)))
 			return (NULL);
-		ft_strcpy(retstr, s1);
-		ft_strncat(retstr, s2, maxlen);
+		while (s1[i])
+		{
+			retstr[i] = s1[i];
+			i++;
+		}
+		while (s2[j])
+		{
+			retstr[i + j] = s2[j];
+			j++;
+		}
+		retstr[i + j] = '\0';
 	}
 	return (retstr);
 }
