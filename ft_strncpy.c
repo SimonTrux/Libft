@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 17:50:07 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/12 15:29:51 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/23 19:24:48 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	}
 	if (len != 0)
 	{
-		while (dst[i])
+		while (len--)
 		{
 			dst[i] = '\0';
 			i++;
