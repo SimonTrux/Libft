@@ -11,12 +11,13 @@
 # **************************************************************************** #
 
 NAME	= libft.a
+CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 SRC_STR	= ft_strcmp.c ft_strncmp.c		\
 		  ft_strdup.c ft_strlen.c ft_strcpy.c ft_strncpy.c	\
 		  ft_strcat.c ft_strncat.c							\
-		  ft_strchr.c ft_strrchr.c ft_strstr.c ft_strnstr.c	
-#ft_strlcat.c			\		  
+		  ft_strchr.c ft_strrchr.c ft_strstr.c ft_strnstr.c	\
+		  ft_strlcat.c
 SRC_MEM	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c	\
 		  ft_memchr.c ft_memcmp.c
 SRC_IS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c 			\
@@ -34,26 +35,28 @@ SRC_BON	= ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c			\
 SRC_PER	= ft_putchar2.c ft_putstr2.c ft_isupper.c ft_islower.c ft_sqrt.c \
 		  ft_isspace.c ft_wc.c
 SOURCES	= $(SRC_STR) $(SRC_MEM) $(SRC_IS) $(SRC_COV) $(SRC_ADD) $(SRC_BON) $(SRC_PER)
+OBJECTS	= $(SOURCES:.c=.o)
 MAIN	= main.c
-
-#OBJ	= $(SOURCES:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJECTS)
 	@echo "\033[92mGCC Compilation\033[0m"
-	gcc -c $(CFLAGS) $(SOURCES)
+#	gcc -c $(CFLAGS) $(SOURCES)
 	@echo
 	@echo "\033[92mLibrary Creation\033[0m"
-	ar rc $(NAME) *.o
+	ar rc $(NAME) $(OBJECTS)
 	@echo
 	@echo "\033[92mRanlib\033[0m"
 	ranlib $(NAME)
 	@echo
 
+#$(OBJECTS):
+#	gcc -c $(CFLAGS) $(SOURCES)
+
 clean:
 	@echo "\033[92mCleaning .o\033[0m"
-	rm -f *.o
+	rm -f $(OBJECTS)
 	@echo
 
 fclean: clean
