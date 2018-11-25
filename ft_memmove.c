@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 20:07:16 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/24 18:14:04 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/25 18:25:13 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/25 19:26:29 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,21 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	i = 0;
 	destination = dst;
 	source = src;
-	if (src < dst)
-		ft_memcpy(dst, src, len);
-	else
+	if (source < destination)
 	{
+		source = source + len - 1;
+		destination = destination + len - 1;
 		while (len)
 		{
-			destination[len] = source[len];
+			*destination-- = *source--;
 			len--;
 		}
 	}
+	else
+		while (i < len)
+		{
+			destination[i] = source[i];
+			i++;
+		}
 	return (dst);
 }
