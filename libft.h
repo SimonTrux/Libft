@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:09:53 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/25 15:48:08 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/25 22:14:39 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,5 @@ double			ft_sqrt(double x);
 int				ft_isspace(char c);
 size_t			ft_wc(char const *s, char c);
 int				ft_is_valid_nb(long long nb);
+size_t			ft_digit_count(int n);
 #endif

@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 18:57:03 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/25 21:21:38 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/12 15:08:45 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/25 21:42:38 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_itoa(int n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*number;
-	size_t	len;
-	long	nb;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	nb = n;
-	len = (ft_digit_count(nb));
-	if (!(number = (char*)malloc(len * sizeof(char) + 1)))
-		return (NULL);
-	number[len] = '\0';
-	len--;
-	if (nb < 0)
+	str1 = (unsigned char*)s1;
+	str2 = (unsigned char*)s2;
+	i = 0;
+	while (str1[i] && str1[i] == str2[i] && i < n - 1)
 	{
-		number[0] = '-';
-		nb = -nb;
+		i++;
+		n--;
 	}
-	if (nb == 0)
-		number[0] = '0';
-	while ((nb > 0) || (len > 0 && nb < 0))
-	{
-		number[len] = ((nb % 10) + 48);
-		nb = (nb / 10);
-		len--;
-	}
-	return (number);
+	return (str1[i] - str2[i]);
 }

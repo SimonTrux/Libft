@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_digit_count.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 18:57:03 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/25 21:21:38 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/25 21:16:17 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/25 21:22:21 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#define ABS(x) x < 0 ? -x : x
 
-char	*ft_itoa(int n)
+size_t	ft_digit_count(int n)
 {
-	char	*number;
-	size_t	len;
-	long	nb;
+	int i;
 
-	nb = n;
-	len = (ft_digit_count(nb));
-	if (!(number = (char*)malloc(len * sizeof(char) + 1)))
-		return (NULL);
-	number[len] = '\0';
-	len--;
-	if (nb < 0)
+	i = 1;
+	while (ABS(n) > 9)
 	{
-		number[0] = '-';
-		nb = -nb;
+		n = (n / 10);
+		i++;
 	}
-	if (nb == 0)
-		number[0] = '0';
-	while ((nb > 0) || (len > 0 && nb < 0))
-	{
-		number[len] = ((nb % 10) + 48);
-		nb = (nb / 10);
-		len--;
-	}
-	return (number);
+	return (i);
 }

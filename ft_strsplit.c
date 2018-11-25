@@ -6,14 +6,14 @@
 /*   By: struxill <struxill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 16:08:36 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/22 20:36:58 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/25 21:20:05 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-size_t	ft_lc(char const *s, char c)
+static size_t	ft_lc(char const *s, char c)
 {
 	size_t	l;
 	size_t	i;
@@ -30,7 +30,7 @@ size_t	ft_lc(char const *s, char c)
 	return (l);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char			**tab;
 	size_t			i;

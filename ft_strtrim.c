@@ -6,14 +6,14 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:51:35 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/23 18:02:08 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/25 21:24:41 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-int		ft_is_space(char c)
+static int		ft_is_space(char c)
 {
 	if (c == ' ' || c == '\n' || c == '\t')
 		return (1);
@@ -21,7 +21,7 @@ int		ft_is_space(char c)
 		return (0);
 }
 
-size_t	ft_front_sp(const char *s)
+static size_t	ft_front_sp(const char *s)
 {
 	size_t	i;
 
@@ -31,7 +31,7 @@ size_t	ft_front_sp(const char *s)
 	return (i);
 }
 
-size_t	ft_end_sp(const char *s)
+static size_t	ft_end_sp(const char *s)
 {
 	size_t	i;
 	size_t	len;
@@ -46,7 +46,7 @@ size_t	ft_end_sp(const char *s)
 	return (i);
 }
 
-char	*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
 	size_t	i;
 	size_t	j;
