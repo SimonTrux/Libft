@@ -36,13 +36,11 @@ SRC_PER	= ft_putchar2.c ft_putstr2.c ft_isupper.c ft_islower.c ft_sqrt.c \
 		  ft_isspace.c ft_wc.c ft_is_valid_nb.c ft_digit_count.c
 SOURCES	= $(SRC_STR) $(SRC_MEM) $(SRC_IS) $(SRC_COV) $(SRC_ADD) $(SRC_BON) $(SRC_PER)
 OBJECTS	= $(SOURCES:.c=.o)
-MAIN	= main.c
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	@echo "\033[92mGCC Compilation\033[0m"
-#	gcc -c $(CFLAGS) $(SOURCES)
 	@echo
 	@echo "\033[92mLibrary Creation\033[0m"
 	ar rc $(NAME) $(OBJECTS)
@@ -50,9 +48,6 @@ $(NAME): $(OBJECTS)
 	@echo "\033[92mRanlib\033[0m"
 	ranlib $(NAME)
 	@echo
-
-#$(OBJECTS):
-#	gcc -c $(CFLAGS) $(SOURCES)
 
 clean:
 	@echo "\033[92mCleaning .o\033[0m"
@@ -65,12 +60,5 @@ fclean: clean
 	@echo
 
 re: fclean all
-
-main: 
-	@echo "\033[92mCompiling Main with Library\033[0m"
-	gcc $(CFLAGS) $(MAIN) -L. -lft
-	@echo
-	@echo "\033[92mFinished\033[0m"
-	@echo
 
 .PHONY:	clean fclean
