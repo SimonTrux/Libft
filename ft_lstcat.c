@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 16:45:15 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/27 18:54:26 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/27 21:45:17 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/27 23:46:25 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_lstcat(t_list *lst)
 {
-	size_t i;
+	size_t	len_content;
+	size_t	i;
+	size_t	j;
+	char	*retstr;
+	char	*tmp;
 
+	len_content = ft_lst_add_cont_size(lst);
 	i = 0;
-	if (n == 0)
-		return (0);
-	while ((s1[i] != '\0') && s1[i] == s2[i] && n)
+	if (!(retstr = (char*)malloc(sizeof(char) * len_content + 1)))
+		return (NULL);
+	while (lst)
 	{
-		i++;
-		n--;
+		j = 0;
+		tmp = lst->content;
+		while ((*lst).content_size--)
+		{
+			retstr[i] = tmp[j];
+			i++;
+			j++;
+		}
+		lst = lst->next;
 	}
-	if (n == 0 && i > 0)
-		i--;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	retstr[i] = '\0';
+	return (retstr);
 }

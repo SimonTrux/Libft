@@ -6,7 +6,7 @@
 /*   By: struxill <struxill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 16:08:36 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/25 21:20:05 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/27 21:01:22 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,20 @@ static size_t	ft_lc(char const *s, char c)
 	return (l);
 }
 
+static char		**ft_free_tab(char **tab, size_t nb)
+{
+	size_t i;
+
+	i = 0;
+	while (i < nb)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (NULL);
+}
+
 char			**ft_strsplit(char const *s, char c)
 {
 	char			**tab;
@@ -50,7 +64,7 @@ char			**ft_strsplit(char const *s, char c)
 			while (s[j] == c)
 				j++;
 			if (!(tab[i] = ft_strsub(s, j, ft_lc(&s[j], c))))
-				return (NULL);
+				return (ft_free_tab(tab, i));
 			j = j + ft_lc(&s[j], c);
 			i++;
 		}

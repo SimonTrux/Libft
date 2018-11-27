@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:44:58 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/23 17:10:48 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/27 21:04:54 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,9 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	j;
 	char	*retstr;
 	size_t	maxlen;
 
-	i = 0;
-	j = 0;
 	retstr = NULL;
 	if (s1 && s2)
 	{

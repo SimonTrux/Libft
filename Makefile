@@ -6,7 +6,7 @@
 #    By: struxill <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 21:48:46 by struxill          #+#    #+#              #
-#    Updated: 2018/11/25 22:14:31 by struxill         ###   ########.fr        #
+#    Updated: 2018/11/27 23:35:04 by struxill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRC_ADD	= ft_memalloc.c	ft_memdel.c ft_strnew.c	ft_strdel.c				\
 SRC_BON	= ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c			\
 		  ft_lstiter.c ft_lstmap.c
 SRC_PER	= ft_putchar2.c ft_putstr2.c ft_isupper.c ft_islower.c ft_sqrt.c \
-		  ft_isspace.c ft_wc.c ft_is_valid_nb.c ft_digit_count.c
+		  ft_isspace.c ft_wc.c ft_is_valid_nb.c ft_digit_count.c		\
+		  ft_lst_add_cont_size.c ft_lstcat.c ft_lst_aff.c
 SOURCES	= $(SRC_STR) $(SRC_MEM) $(SRC_IS) $(SRC_COV) $(SRC_ADD) $(SRC_BON) $(SRC_PER)
 OBJECTS	= $(SOURCES:.c=.o)
 

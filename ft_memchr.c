@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 14:49:44 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/25 21:38:58 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/27 18:13:48 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	if (n == 0)
 		return (NULL);
-	while (str[i] != uc && str[i] && i < n - 1)
+	while (i < n)
+	{
+		if (str[i] == uc)
+			return ((void*)&str[i]);
 		i++;
-	if (str[i] == uc)
-		return ((void*)&str[i]);
-	else
-		return (NULL);
+	}
+	return (NULL);
 }

@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lst_aff.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 16:45:15 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/27 18:54:26 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/27 23:11:16 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/27 23:38:41 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_lst_aff(t_list *lst)
 {
-	size_t i;
+	char	*tmp;
+	size_t	i;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while ((s1[i] != '\0') && s1[i] == s2[i] && n)
+	tmp = lst->content;
+	i = 1;
+	while (lst)
 	{
+		ft_putstr("\n");
+		ft_putstr("Maillon : ");
+		ft_putnbr(i);
+		ft_putchar('\n');
+		ft_putstr("List content : ");
+		ft_putstr(lst->content);
+		ft_putchar('\n');
+		ft_putstr("Content size : ");
+		ft_putnbr(lst->content_size);
+		ft_putstr("\n\n");
+		if (lst->next != NULL)
+			ft_putstr("|-------------------------------|\n");
+		lst = lst->next;
 		i++;
-		n--;
 	}
-	if (n == 0 && i > 0)
-		i--;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

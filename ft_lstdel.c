@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 17:37:39 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/22 19:44:00 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/27 21:43:58 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
+	t_list	*tmp;
+
 	while (*alst)
 	{
+		tmp = (*alst)->next;
 		(*del)((*alst)->content, (*alst)->content_size);
 		free(*alst);
-		*alst = (*alst)->next;
+		*alst = tmp;
 	}
 	*alst = NULL;
 }

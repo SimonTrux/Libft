@@ -6,11 +6,13 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:33:54 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/25 16:05:25 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/27 18:00:03 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int	ft_atoi(const char *str)
 {
@@ -36,3 +38,21 @@ int	ft_atoi(const char *str)
 		return ((int)(res * sign));
 	return ((sign < 0) ? 0 : -1);
 }
+/*
+int main(void)
+{
+	int j;
+	char	*str;
+
+	j = 0;
+	while (j < 10)
+	{
+		str[j] = ((char)(rand() % 10) + '0');
+		j++;
+	}
+	str[11] = 0;
+	printf("original atoi : %d\n", atoi(str));
+	printf("my atoi : %d\n", ft_atoi(str));
+	ft_putstr("erreur");
+	return (0);
+}*/

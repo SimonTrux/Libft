@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:49:58 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/22 19:41:52 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/27 23:46:30 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		new_list->content = (void*)malloc(sizeof(new_list) * content_size);
+		new_list->content = (void*)malloc(sizeof(*(new_list->content))
+				* content_size);
 		if (new_list->content == NULL)
+		{
+			free(new_list);
 			return (NULL);
+		}
 		new_list->content_size = content_size;
 		ft_memcpy(new_list->content, content, content_size);
 	}
