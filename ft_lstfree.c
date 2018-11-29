@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_lstfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 19:10:17 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/29 20:07:04 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/29 18:28:03 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/29 19:25:48 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(char c)
+#include "libft.h"
+#include <stdlib.h>
+
+void	ft_lstfree(t_list *lst)
 {
-	if ((c > 8 && c < 14) || c == 32)
-		return (1);
-	else
-		return (0);
+	t_list	*tmp;
+
+	while (lst)
+	{
+		tmp = lst;
+		free(lst->content);
+		lst->content_size = 0;
+		lst = lst->next;
+		free(tmp);
+	}
+	lst = NULL;
 }

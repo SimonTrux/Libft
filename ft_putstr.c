@@ -6,17 +6,20 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 17:30:07 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/22 19:39:24 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/29 20:18:02 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putstr(char const *s)
 {
+	size_t	len;
+
 	if (s)
 	{
-		while (*s)
-			ft_putchar(*s++);
+		len = ft_strlen(s);
+		write(1, s, len);
 	}
 }

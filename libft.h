@@ -6,7 +6,7 @@
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:09:53 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/27 23:35:02 by struxill         ###   ########.fr       */
+/*   Updated: 2018/11/29 21:47:15 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,15 @@ int				ft_islower(int c);
 double			ft_sqrt(double x);
 int				ft_isspace(char c);
 size_t			ft_wc(char const *s, char c);
+int				ft_atoil(const char *str);
 int				ft_is_valid_nb(long long nb);
 size_t			ft_digit_count(int n);
 size_t			ft_lst_add_cont_size(t_list *lst);
 char			*ft_lstcat(t_list *lst);
+char			*ft_lstcat_rev(t_list *lst);
 void			ft_lst_aff(t_list *lst);
+void			ft_lst_aff_rev(t_list *lst);
+t_list			*ft_lstcpy(t_list *lst);
+void			ft_lstfree(t_list *lst);
+long long		ft_abs(int x);
 #endif

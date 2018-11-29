@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wc.c                                            :+:      :+:    :+:   */
+/*   ft_lstcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 21:32:44 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/29 20:08:48 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/29 17:16:05 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/29 21:48:58 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-size_t	ft_wc(char const *s, char c)
+t_list	*ft_lstcpy(t_list *lst)
 {
-	size_t	i;
-	size_t	wc;
-	size_t	flag;
+	t_list	*new_list;
+	t_list	*start;
 
-	wc = 0;
-	if (s)
+	if (!lst)
+		return (NULL);
+	if (!(new_list = ft_lstnew(lst->content, lst->content_size)))
+		return (NULL);
+	start = new_list;
+	lst = lst->next;
+	while (lst)
 	{
-		i = 0;
-		while (s[i] != '\0')
-		{
-			flag = 0;
-			while (s[i] && s[i] == c)
-				i++;
-			while (s[i] && s[i] != c)
-			{
-				i++;
-				flag = 1;
-			}
-			if (flag == 1)
-				wc++;
-		}
+		if (!(new_list->next = ft_lstnew(lst->content, lst->content_size)))
+			return (NULL);
+		new_list = new_list->next;
+		lst = lst->next;
 	}
-	return (wc);
+	new_list->next = NULL;
+	return (start);
 }

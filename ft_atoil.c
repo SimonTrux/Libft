@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wc.c                                            :+:      :+:    :+:   */
+/*   ft_atoil.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: struxill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 21:32:44 by struxill          #+#    #+#             */
-/*   Updated: 2018/11/29 20:08:48 by struxill         ###   ########.fr       */
+/*   Created: 2018/11/29 15:28:17 by struxill          #+#    #+#             */
+/*   Updated: 2018/11/29 15:29:11 by struxill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_wc(char const *s, char c)
+int	ft_atoil(const char *str)
 {
-	size_t	i;
-	size_t	wc;
-	size_t	flag;
+	int			i;
+	int			sign;
+	long long	res;
 
-	wc = 0;
-	if (s)
+	i = 0;
+	sign = 1;
+	res = 0;
+	while (ft_isspace(str[i]) == 1)
+		i++;
+	if (str[i] == '-')
+		sign = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]) == 1)
 	{
-		i = 0;
-		while (s[i] != '\0')
-		{
-			flag = 0;
-			while (s[i] && s[i] == c)
-				i++;
-			while (s[i] && s[i] != c)
-			{
-				i++;
-				flag = 1;
-			}
-			if (flag == 1)
-				wc++;
-		}
+		res = res * 10 + (str[i] - 48);
+		i++;
 	}
-	return (wc);
+	if (ft_is_valid_nb(res * sign) == 1)
+		return ((int)(res * sign));
+	return ((sign < 0) ? 0 : -1);
 }
